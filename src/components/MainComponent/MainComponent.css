@@ -1,0 +1,29 @@
+
+
+.main-container{
+    text-align: center;
+    display: flex;
+    padding: 2rem 3rem;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(53, 53, 53);
+    height: 90dvh;
+}
+
+.main-container-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90%;
+    width: 50px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.main-container-text{
+    flex: 2;
+}
+
+.main-container-product{
+    flex: 2;
+}
