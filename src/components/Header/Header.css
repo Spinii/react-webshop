@@ -4,7 +4,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem 3rem;
+    padding: .5rem 3rem;
 }
 
 .navbar ul{
@@ -19,13 +19,52 @@
     padding: .5rem;
     border-bottom: 5px solid transparent;
     transition: all 0.3s ease;
+    color: black;
 }
 
 .navbar li:hover{
-    border-bottom: 5px solid purple;
+    border-bottom: 5px solid rgba(9,21,82,1);
+    border-radius: 5px;
 }
 
 .logo{
     font-size: 2rem;
     font-weight: bold;
+    color: rgba(9,21,82,1);
+}
+
+.logo:hover{
+    transform: scale(1.05);
+}
+
+.shoppingCart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    padding: .5rem;
+}
+
+.shoppingCart:hover{
+    transform: scale(1.1);
+    color: rgb(26, 26, 26);
+}
+
+.amount{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0;
+    bottom: 10;
+    transform: translateX(50%);
+    transform: translateY(50%);
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    background-color: rgba(9,21,82,1);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
 }

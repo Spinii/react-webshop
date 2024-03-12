@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import './Header.css'
+import { RiShoppingCartLine } from "@remixicon/react"
 
 
 
@@ -28,7 +29,8 @@ function Header(){
                         </ul>
                     </div>
                     <div className="shoppingCart">
-                        Shopping Cart
+                        <RiShoppingCartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
+                        <div className="amount">3</div>
                     </div>
                 </div>
             </nav>

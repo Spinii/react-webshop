@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import "./MainComponent.css"
 import { RiSkipLeftLine, RiSkipRightLine } from "@remixicon/react";
+import { Link } from "react-router-dom";
 
 function MainComponent(){
 
@@ -83,7 +84,7 @@ function MainComponent(){
                 <h6>{price[productCount]}€</h6>
                 <div className="hero-btns">
                     <button className="mainBtn">Buy Product</button>
-                    <button className="mainBtn">Shop More</button>
+                    <Link to="/shop"><button className="mainBtn">Shop More</button></Link>
                 </div>
             </div>}
             <div className="main-container-product">
