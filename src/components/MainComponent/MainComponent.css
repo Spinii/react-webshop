@@ -7,7 +7,8 @@
     align-items: center;
     justify-content: space-between;
     background-color: rgb(53, 53, 53);
-    height: 90dvh;
+    height: 85dvh;
+    gap: 1rem;
 }
 
 .main-container-btn{
@@ -16,14 +17,33 @@
     justify-content: center;
     height: 90%;
     width: 50px;
-    background-color: black;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.404);
     cursor: pointer;
 }
 
 .main-container-text{
+    padding: 1rem 2rem;
     flex: 2;
 }
 
+.main-container-text h4{
+    color: white;
+    font-size: 2rem;
+}
+
+.main-container-text p{
+    color: white;
+    font-size: 1.1rem;
+}
+
 .main-container-product{
+    padding: 1rem 2rem;
+    height: 90%;
     flex: 2;
+}
+
+.main-container-product img{
+    object-fit: cover;
+    height: 100%
 }

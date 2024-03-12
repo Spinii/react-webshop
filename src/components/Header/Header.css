@@ -4,25 +4,25 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .5rem 3rem;
+    padding: 1rem 3rem;
 }
 
 .navbar ul{
     display: flex;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .navbar li{
     list-style-type: none;
     font-size: 1.1rem;
     font-weight: bold;
-    padding: .5rem 1rem;
-    border: 10px solid transparent;
+    padding: .5rem;
+    border-bottom: 5px solid transparent;
     transition: all 0.3s ease;
 }
 
 .navbar li:hover{
-    border-bottom: 10px solid purple;
+    border-bottom: 5px solid purple;
 }
 
 .logo{
