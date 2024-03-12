@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react"
 import "./MainComponent.css"
 import { RiSkipLeftLine, RiSkipRightLine } from "@remixicon/react";
-import { Link } from "react-router-dom";
-import { PopularProducts } from "./PopularProducts";
+import { Link, Outlet } from "react-router-dom";
+import { PopularProducts } from "../subComponents/PopularProducts";
+import { Subscribe } from "../subComponents/Subscribe";
 
 function MainComponent() {
     const [products, setProducts] = useState([]);
@@ -11,7 +12,7 @@ function MainComponent() {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://dummyjson.com/products?limit=6&skip=0&select=title,price,thumbnail,description,images');
+                const response = await fetch('https://dummyjson.com/products?limit=6&skip=0&select=title,price,thumbnail,description,images,id');
                 const data = await response.json();
                 console.log("Fetched Products:", data.products);
                 setProducts(data.products);
@@ -38,7 +39,7 @@ function MainComponent() {
                     <RiSkipLeftLine color="white"/>
                 </div>
                 {currentProduct && (
-                    <div className="main-container-text">
+                    <div key={currentProduct.id} className="main-container-text">
                         <h2>{currentProduct.title}</h2>
                         <p>{currentProduct.description}</p>
                         <h6>{currentProduct.price}€</h6>
@@ -56,6 +57,8 @@ function MainComponent() {
                 </div>
             </div>
             <PopularProducts />
+            <Subscribe />
+            <Outlet />
         </>
     );
 }

@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { About } from './components/Pages/About'
 import { Shop } from './components/Pages/Shop'
 import { Contact } from './components/Pages/Contact'
+import { Product } from './components/Pages/Product'
+import { SingleProduct } from './components/Pages/SingleProduct'
 
 function App() {
 
@@ -14,10 +16,13 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route index element={<MainComponent />} />
+          <Route path='/' element={<MainComponent />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
+          <Route path='/product' element={<Product />} >
+            <Route path='/product/:id' element={<SingleProduct />} />
+          </Route>
         </Routes>
         <Footer />
       </BrowserRouter>
