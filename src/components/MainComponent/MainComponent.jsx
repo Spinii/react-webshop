@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import "./MainComponent.css"
 import { RiSkipLeftLine, RiSkipRightLine } from "@remixicon/react";
 import { Link } from "react-router-dom";
+import { PopularProducts } from "./PopularProducts";
 
 function MainComponent(){
 
@@ -20,7 +21,7 @@ function MainComponent(){
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://dummyjson.com/products');
+                const response = await fetch('https://dummyjson.com/products?limit=6&skip=0&select=title,price,thumbnail,description,images')
                 const data = await response.json();
                 console.log("Fetched Products:", data);
 
@@ -35,10 +36,10 @@ function MainComponent(){
                 setImages(productImages);
                 setCoverImage(firstImage);
                 setPrice(productPrice);
-                console.log("Titles:", productTitles);
-                console.log("Description:", productDescription);
-                console.log("Images:", productImages);
-                console.log("firstimage => ", firstImage)
+                // console.log("Titles:", productTitles);
+                // console.log("Description:", productDescription);
+                // console.log("Images:", productImages);
+                // console.log("firstimage => ", firstImage)
                
                 
             } catch (error) {
@@ -94,6 +95,7 @@ function MainComponent(){
                 <RiSkipRightLine color="white"/>
             </div>
         </div>
+        <PopularProducts />
         </>
     )
 }

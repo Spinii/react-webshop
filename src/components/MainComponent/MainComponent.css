@@ -32,6 +32,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
 }
 
+
 .main-container-text{
     display: flex;
     flex-direction: column;
@@ -44,7 +45,7 @@
 }
 
 .main-container-text h2{
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 
@@ -58,12 +59,11 @@
     font-size: 2rem;
     font-style: italic;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: .5rem;
     width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.436);
     border-radius: 10px;
-    background-color: rgba(9,21,82,1);
-    
+    background-color: rgb(7, 18, 63);
 }
 
 .hero-btns{
@@ -96,7 +96,7 @@
     text-align: center;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.436);
-    background-color: rgba(0, 0, 0, 0.404);
+    background-color: rgba(0, 0, 0, 0.123);
     padding: 2rem 3rem;
     height: 90%;
     flex: 3;
