@@ -50,7 +50,7 @@ const SingleProduct = () => {
     }
 
     return (
-        <div>
+        <div className='main'>
             {product ? 
             <div className='main-product-container'>
                 <div className="left-side">
@@ -79,7 +79,9 @@ const SingleProduct = () => {
                     </div>
                 </div>
             </div> : 
-            <RiLoader2Fill />
+            <div className="loading">
+                <RiLoader2Fill size={"10rem"} color='blue'/>
+            </div>
             }
         </div>
     );
