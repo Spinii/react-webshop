@@ -16,6 +16,7 @@
     margin-bottom: 1rem;
     font-weight: bold;
     border-bottom: 5px solid rgb(17, 33, 109);
+    user-select: none;
 }
 
 .products-container{
@@ -35,7 +36,12 @@
     color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
     border: 1px solid white;
+    transition: all 0.3s ease;
   }
+
+.product:hover{
+    background-color: rgb(29, 47, 134);
+}
 
 .product img{
     object-fit: cover;

@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import "./SingleProduct.css"
+import "../subComponents/PopularProducts.css"
 import { RiLoader2Fill } from '@remixicon/react';
 
 const SingleProduct = () => {
+
+    const disabledButton = {
+
+        backgroundColor: "black",
+        opacity: "50%"
+    }
+
+    const [button, setButton] = useState();
 
 
     const { id } = useParams();
@@ -33,6 +42,13 @@ const SingleProduct = () => {
 
     const [cartCount, setCartCount] = useState(0);
 
+
+    function minusCartCount(){
+        if(cartCount > 0){
+            setCartCount(cartCount - 1)
+        }
+    }
+
     return (
         <div>
             {product ? 
@@ -55,11 +71,11 @@ const SingleProduct = () => {
                     <h4>Price: {product.price}€</h4>
                     <div className="add-to-cart">
                         <div className="add-input">
-                            <label onClick={() => setCartCount(cartCount - 1)}>-</label>
+                            <label style={button} onClick={() => minusCartCount()}>-</label>
                             <input value={cartCount}></input>
                             <label onClick={() => setCartCount(cartCount + 1)}>+</label>
                         </div>
-                        <button className='mainBtn'>Add To Cart</button>
+                        <button className='mainBtn mainBtnLight'>Add To Cart</button>
                     </div>
                 </div>
             </div> : 

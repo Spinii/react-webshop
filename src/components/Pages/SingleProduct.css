@@ -113,9 +113,11 @@
 
 .add-input input{
     padding: .5rem;
-    width: 5%;
+    width: 10%;
     text-align: center;
     border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .add-input label{
