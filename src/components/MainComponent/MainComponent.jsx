@@ -4,6 +4,7 @@ import { RiSkipLeftLine, RiSkipRightLine } from "@remixicon/react";
 import { Link, Outlet } from "react-router-dom";
 import { PopularProducts } from "../subComponents/PopularProducts";
 import { Subscribe } from "../subComponents/Subscribe";
+import { SingleProduct } from "../Pages/SingleProduct";
 
 function MainComponent() {
     const [products, setProducts] = useState([]);
@@ -44,7 +45,7 @@ function MainComponent() {
                         <p>{currentProduct.description}</p>
                         <h6>{currentProduct.price}€</h6>
                         <div className="hero-btns">
-                            <button className="mainBtn">Buy Product</button>
+                            <Link to={"/product/" + currentProduct.id}><button className="mainBtn">Buy Product</button></Link>
                             <Link to="/shop"><button className="mainBtn">Shop More</button></Link>
                         </div>
                     </div>

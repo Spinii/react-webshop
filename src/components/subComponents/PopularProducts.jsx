@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "../MainComponent/MainComponent.css"
 import "./PopularProducts.css"
+import { Link } from "react-router-dom";
+
 
 
 function PopularProducts(){
@@ -12,7 +14,7 @@ function PopularProducts(){
     useEffect(() => {
         const fetchPopularProducts = async () => {
             try{
-                const response = await fetch('https://dummyjson.com/products?limit=6&skip=6&select=title,price,thumbnail')
+                const response = await fetch('https://dummyjson.com/products?limit=6&skip=6&select=title,price,thumbnail,id')
                 const data = await response.json();
                 console.log("data =>", data);
                 setDefineData(data.products);
@@ -34,7 +36,7 @@ function PopularProducts(){
                     <img src={item.thumbnail}></img>
                     <h4>{item.title}</h4>
                     <h6>{item.price}€</h6>
-                    <button className="mainBtn mainBtnLight">Buy Product</button>
+                    <Link to={"/product/" + item.id}><button className="mainBtn mainBtnLight">Buy Product</button></Link>
                 </div>)}
             </div>
         </div> 
