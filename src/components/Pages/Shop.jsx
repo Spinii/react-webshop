@@ -52,14 +52,12 @@ function Shop(){
     }
 
 
-
     function resetFilteredProducts(){
 
         setFilteredProducts(products)
     }
 
-    console.log("handlecheckboxchange", handleCheckBoxChange)
-
+    
 
 
 

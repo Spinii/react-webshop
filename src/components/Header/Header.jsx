@@ -28,10 +28,12 @@ function Header(){
                             </Link>
                         </ul>
                     </div>
-                    <div className="shoppingCart">
-                        <RiShoppingCartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
-                        <div className="amount">3</div>
-                    </div>
+                    <Link to="/cart">
+                        <div className="shoppingCart">
+                            <RiShoppingCartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
+                            <div className="amount">3</div>
+                        </div>
+                    </Link>
                 </div>
             </nav>
             

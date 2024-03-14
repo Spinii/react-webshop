@@ -2,17 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import "./SingleProduct.css"
 import "../subComponents/PopularProducts.css"
-import { RiLoader2Fill } from '@remixicon/react';
+import { RiLoader2Fill, RiStarFill } from '@remixicon/react';
 
 const SingleProduct = () => {
 
-    const disabledButton = {
-
-        backgroundColor: "black",
-        opacity: "50%"
-    }
-
-    const [button, setButton] = useState();
+    
 
 
     const { id } = useParams();
@@ -24,7 +18,9 @@ const SingleProduct = () => {
                 const response = await fetch(`https://dummyjson.com/products/${id}`);
                 const data = await response.json();
                 setProduct(data);
-                console.log(data);
+                console.log("data =>", data);
+                console.log("data price =>", product.price)
+                setProductPrice(product.price)
             } catch (error) {
                 console.error("Error fetching product:", error);
             }
@@ -49,6 +45,8 @@ const SingleProduct = () => {
         }
     }
 
+
+
     return (
         <div className='main'>
             {product ? 
@@ -64,14 +62,17 @@ const SingleProduct = () => {
                 <div className="right-side">
                     <div className="brand">
                     <h2>{product.title}</h2>
-                    <label>Rating: {product.rating}</label>
+                    <div className="rating" style={{display: "flex", justifyContent: "center", alignItems: "center", gap: ".5rem"}}>
+                        <label>Rating: {product.rating}</label>
+                        <RiStarFill size={"1.2rem"} color='blue'/>
+                    </div>
                     <h3>Brand: {product.brand}</h3>
                     </div>
-                    <p>Description: {product.description}</p>
+                    <p><strong>Description:</strong> {product.description}</p>
                     <h4>Price: {product.price}€</h4>
                     <div className="add-to-cart">
                         <div className="add-input">
-                            <label style={button} onClick={() => minusCartCount()}>-</label>
+                            <label onClick={() => minusCartCount()}>-</label>
                             <input value={cartCount}></input>
                             <label onClick={() => setCartCount(cartCount + 1)}>+</label>
                         </div>

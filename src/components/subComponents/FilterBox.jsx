@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 
 
-function FilterBox({products, handleCheckBoxChange}){
+function FilterBox({products, handleCheckBoxChange, resetFilteredProducts}){
 
 
     const [categories, setCategories] = useState([])
@@ -59,7 +59,7 @@ function FilterBox({products, handleCheckBoxChange}){
                 </AccordionSummary>
                     <AccordionDetails>
                     <div className="filterBox">
-                    <button className="filterBtn">Reset Categories</button>
+                    <button type="submit" className="filterBtn" onClick={() => resetFilteredProducts()}>Reset Categories</button>
                     {categories.map(category => 
                         <div className="filter">
                             <input value={category} onChange={(event) => handleCheckBoxChange(event)} id={category} type="checkbox"></input>
@@ -69,7 +69,7 @@ function FilterBox({products, handleCheckBoxChange}){
                     </div>
                     </AccordionDetails>
             </Accordion>
-            <Accordion
+            {/* <Accordion
                 defaultValue={30}
                 sx={{
                     width: 300,
@@ -90,12 +90,12 @@ function FilterBox({products, handleCheckBoxChange}){
                     <button className="filterBtn">Filter Categories</button>
                     {brands.map(brand => 
                         <div className="filter">
-                            <input value={brand} id={brand} type="checkbox"></input>
+                            <input value={brand} id={brand} type="checkbox" onClick={(event) => handleCheckBoxChange(event)}></input>
                             <label for={brand}>{brand}</label>
                         </div>)}
                     </div>
                     </AccordionDetails>
-            </Accordion>
+            </Accordion> */}
         </div>
     )
 }
