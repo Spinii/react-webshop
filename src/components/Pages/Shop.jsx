@@ -52,6 +52,7 @@ function Shop(){
     }
 
 
+
     function resetFilteredProducts(){
 
         setFilteredProducts(products)

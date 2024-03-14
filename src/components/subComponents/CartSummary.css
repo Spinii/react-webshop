@@ -1,0 +1,113 @@
+
+
+.main-summary-container{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #dfdfdf;
+    height: 100%;
+    padding: 1rem;
+    z-index: 1;
+    box-shadow: -10px 0 5px rgba(0, 0, 0, 0.052);
+}
+
+.summary-row{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.main-summary-container .cart-line-bold{
+    margin-bottom: 1rem;
+}
+
+.promo-code-input{
+    margin-bottom: 1rem;
+}
+.main-summary-container h4{
+    margin-bottom: .5rem;
+    opacity: .7;
+}
+
+.promo-code-input{
+    margin-bottom: 1rem;
+}
+
+.promo-code-input input{
+    padding: .5rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid rgba(9, 21, 82, 0.267);
+}
+
+.promo-code-input button{
+    padding: .6rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: 1px solid rgba(9,21,82,1);
+    background-color: rgba(9,21,82,1);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-summary-row{
+    margin-bottom: 1rem;
+}
+
+.main-summary-row h3{
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.summary-row h3{
+
+    font-weight: 400;
+    opacity: .9;
+}
+
+.main-summary-row{
+    margin-bottom: 1rem;
+}
+
+.summary-row h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.summary-row-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgba(9,21,82,1);
+    border: 1px solid rgba(255, 255, 255, 0.493);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.summary-row-button:hover{
+    background-color: rgb(31, 48, 131);
+    border: 1px solid rgba(255, 255, 255, 0.767);
+    box-shadow: 0 0 10px rgba(31, 48, 131, 0.281);
+}
+
+.summary-row-button:active{
+    background-color: rgb(66, 84, 173);
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.summary-row p{
+    margin-bottom: 1rem;
+    font-weight: bold;
+    opacity: .7;
+}
+
+
