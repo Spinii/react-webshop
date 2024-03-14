@@ -6,14 +6,17 @@ import { FilterBox } from "../subComponents/FilterBox";
 function Shop(){
 
     const [products, setProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState([])
+    const [allCheckedCategories, setAllCheckedCategories] = useState([])
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const response = await fetch('https://dummyjson.com/products?limit=0');
                 const data = await response.json();
-                console.log("Fetched Products:", data.products);
+                // console.log("Fetched Products:", data.products);
                 setProducts(data.products);
+                setFilteredProducts(data.products)
             } catch (error) {
                 console.error("Error fetching products:", error);
             }
@@ -22,13 +25,51 @@ function Shop(){
         fetchProducts();
     }, []);
 
+    useEffect(() => {
+        if(allCheckedCategories.length === 0){
+            setFilteredProducts(products)
+        }
+        else{
+            const filtered = products.filter(product => allCheckedCategories.includes(product.category))
+            setFilteredProducts(filtered)
+        }
+    }, [allCheckedCategories, products])
+
+
+
+    function handleCheckBoxChange(event) {
+
+        const newItem = event.target.value;
+
+        if (allCheckedCategories.includes(newItem)) {
+            const updatedCheckedCategories = allCheckedCategories.filter(item => item !== newItem);
+            setAllCheckedCategories(updatedCheckedCategories);
+        }
+        else {
+            setAllCheckedCategories([...allCheckedCategories, newItem]);
+        }
+
+    }
+
+
+
+    function resetFilteredProducts(){
+
+        setFilteredProducts(products)
+    }
+
+    console.log("handlecheckboxchange", handleCheckBoxChange)
+
+
+
+
 
     return(
             <>
             <div className="main-shop-container">
-                <FilterBox products={products}/>
+                <FilterBox products={products} handleCheckBoxChange={handleCheckBoxChange} resetFilteredProducts={resetFilteredProducts}/>
                 <div className="shop-left">
-                    {products.map(product => <Link key={product.id} to={`/product/${product.id}`}>
+                    {filteredProducts.map(product => <Link key={product.id} to={`/product/${product.id}`}>
                         <div key={product.id} className="shopProduct">
                             <img src={product.thumbnail}></img>
                             <h3>{product.title}</h3>
