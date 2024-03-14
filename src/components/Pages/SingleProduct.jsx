@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import "./SingleProduct.css"
 import "../subComponents/PopularProducts.css"
-import { RiLoader2Fill, RiStarFill } from '@remixicon/react';
+import { RiArrowLeftCircleFill, RiLoader2Fill, RiStarFill } from '@remixicon/react';
 
 const SingleProduct = () => {
 
     
-
+    const navigate = useNavigate()
 
     const { id } = useParams();
     const [product, setProduct] = useState(null);
@@ -52,11 +52,14 @@ const SingleProduct = () => {
             {product ? 
             <div className='main-product-container'>
                 <div className="left-side">
-                    <div className="small-images">
-                        {product.images.map((image, index) => <div className='img-container'><img onClick={() => handleCurrrentIndex(index)} className='small-image' key={index} src={image}></img></div> )}
-                    </div>
-                    <div className="big-images">
-                        <img className='big-image' src={product.images[currentIndex]}></img>
+                <RiArrowLeftCircleFill size={"3rem"} color='white' style={{cursor: "pointer"}} onClick={() => navigate(-1)}/>
+                    <div className="left-side-images">
+                        <div className="small-images">
+                            {product.images.map((image, index) => <div className='img-container'><img onClick={() => handleCurrrentIndex(index)} className='small-image' key={index} src={image}></img></div> )}
+                        </div>
+                        <div className="big-images">
+                            <img className='big-image' src={product.images[currentIndex]}></img>
+                        </div>
                     </div>
                 </div>
                 <div className="right-side">
@@ -76,7 +79,10 @@ const SingleProduct = () => {
                             <input value={cartCount}></input>
                             <label onClick={() => setCartCount(cartCount + 1)}>+</label>
                         </div>
-                        <button className='mainBtn mainBtnLight'>Add To Cart</button>
+                        <div className="btns">
+                            <button className='mainBtn mainBtnLight'>Add To Cart</button>
+                            <button className='mainBtn mainBtnLight'>Go To Cart</button>
+                        </div>
                     </div>
                 </div>
             </div> : 

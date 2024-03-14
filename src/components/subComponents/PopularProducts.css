@@ -68,9 +68,9 @@
 .mainBtnLight{
     font-size: 1rem;
     background-color: rgb(135, 155, 255);
-    color: black;
+    color: white;
     font-weight: bold;
-    border: 1px solid rgba(0, 5, 31, 0.767);
+    border: 1px solid rgba(0, 5, 31, 0.24);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.24);
 }
 

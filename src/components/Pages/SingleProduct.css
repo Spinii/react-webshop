@@ -15,19 +15,25 @@
     justify-content: space-between;
 }
 
-
-
 .left-side{
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     flex: 1;
     min-height: 500px;
     background-color: rgb(17, 33, 109);
     padding: 1rem;
-    align-items: center;
     border-radius: 10px;
     box-shadow: 10px 0 10px rgba(0, 0, 0, 0.233);
     z-index: 10;
+}
+
+.left-side-images{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 700px;
+    min-width: 700px;
 }
 
 .small-images{
@@ -61,6 +67,7 @@
     display: flex;
     align-items: center;
     border-radius: 10px;
+    width: 70%;
 }
 
 
@@ -85,8 +92,9 @@
 }
 
 .right-side h2{
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: rgb(17, 33, 109);
+    text-transform: capitalize;
 
 }
 
@@ -148,5 +156,12 @@
 
 .add-input label:active{
     background-color: rgb(43, 62, 158);
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
 }
 
