@@ -36,7 +36,7 @@ function Subscribe(){
 
     return(
         <>
-            <div className="main-container main-container-subscribe">
+            <div className="main-container-subscribe">
                 <div className="image-container">
                     <img src="src\assets\subscribeImage.jpg"></img>
                 </div>
