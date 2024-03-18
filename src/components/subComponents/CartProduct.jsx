@@ -25,11 +25,11 @@ function CartProduct({product}){
                 </div>
             </div>
             <div className="price-info">
-                <h4>{product.discountedPrice}€</h4>
-                <h2>{product.price}€</h2>
+                <h4>{product.price}€</h4>
+                <h2>{product.price - (product.price * product.discountPercentage / 100).toFixed(2)}€</h2>
             </div>
             <div className="total-price">
-                <h2>{product.total}€</h2>
+                <h2>{product.price * product.quantity}€</h2>
             </div>
             </div>
             <div className="cart-line-light"></div>

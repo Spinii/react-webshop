@@ -37,8 +37,6 @@ function Cart(){
 
     
 
-
-
     return(
         <>
         {shoppingCart ? <div className="main-cart-container">
@@ -59,7 +57,7 @@ function Cart(){
                 <div className="cart-line-light"></div>
                 {basketProducts.map(product => <CartProduct product={product}/>)}
             </div>
-            <CartSummary summary={summary}/>
+            <CartSummary />
         </div> : 
         <RiLoader2Fill />}
         </>

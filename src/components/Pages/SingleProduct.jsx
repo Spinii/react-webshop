@@ -13,6 +13,8 @@ const SingleProduct = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const {basket, setBasket} = useContext(AppContext)
+    const [productPrice, setProductPrice] = useState(0)
+    const [originalProductPrice, setOriginalProductPrice] = useState(0)
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -21,6 +23,8 @@ const SingleProduct = () => {
                 const data = await response.json();
                 setProduct(data);
                 // console.log("data =>", data);
+                setProductPrice(data.price)
+                setOriginalProductPrice(data.price)
             } catch (error) {
                 console.error("Error fetching product:", error);
             }
@@ -30,7 +34,13 @@ const SingleProduct = () => {
     }, [id]);
 
 
+
+
+
+
     const [currentIndex, setCurrentIndex] = useState(0);
+    // const [newProductPrice, setNewProductPrice] = useState(productPrice)
+    
 
     function handleCurrrentIndex(index){
 
@@ -47,14 +57,28 @@ const SingleProduct = () => {
     }
 
     function addToBasketHandler() {
-        
-        setBasket(prevBasket => {
-            const updatedProducts = [...prevBasket.products, product];
-            return { ...prevBasket, products: updatedProducts };
-        });
+        if (cartCount > 0) {
+            setBasket(prevBasket => {
+                const updatedProducts = [...prevBasket.products];
+                const existingProductIndex = updatedProducts.findIndex(item => item.id === product.id);
+    
+                if (existingProductIndex !== -1) {
+                    updatedProducts[existingProductIndex].quantity += cartCount;
+                } else {
+                    updatedProducts.push({ ...product, quantity: cartCount });
+                }
+    
+                return { ...prevBasket, products: updatedProducts };
+            });
+        } else {
+            window.alert("Please choose at least one product!");
+        }
     }
     
-    console.log(basket)
+    
+    useEffect(() => {
+        setProductPrice(originalProductPrice * cartCount)
+    }, [cartCount])
 
 
 
@@ -83,7 +107,7 @@ const SingleProduct = () => {
                     <h3>Brand: {product.brand}</h3>
                     </div>
                     <p><strong>Description:</strong> {product.description}</p>
-                    <h4>Price: {product.price}€</h4>
+                    <h4>Price: {productPrice}€</h4>
                     <div className="add-to-cart">
                         <div className="add-input">
                             <label onClick={() => minusCartCount()}>-</label>

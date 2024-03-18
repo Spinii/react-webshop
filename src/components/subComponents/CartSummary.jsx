@@ -1,7 +1,7 @@
 import "./CartSummary.css"
 import "./CartProduct.css"
 
-const CartSummary = ({summary}) => {
+const CartSummary = ({basketTotal}) => {
 
     return (
         <>
@@ -16,7 +16,7 @@ const CartSummary = ({summary}) => {
                 <div className="cart-line-bold"></div>
                 <div className="main-summary-row summary-row">
                     <h3>Subtotal</h3>
-                    <h3>{summary.total}€</h3>
+                    <h3>{basketTotal}€</h3>
                 </div>
                 <div className="summary-row">
                     <h3>Shipping</h3>
@@ -29,7 +29,7 @@ const CartSummary = ({summary}) => {
                 <div className="cart-line-bold"></div>
                 <div className="summary-row">
                     <h2>Estimated Total</h2>
-                    <h2>{summary.total}€</h2>
+                    <h2>{basketTotal}€</h2>
                 </div>
                 <div className="cart-line-bold"></div>
                 <div className="summary-row-button">
