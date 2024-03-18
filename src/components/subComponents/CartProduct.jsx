@@ -2,7 +2,9 @@ import { Link } from "react-router-dom"
 import "../Pages/Shop.css"
 import "./CartProduct.css"
 
+
 function CartProduct({product}){
+
 
     return(
         <div style={{display: "flex", flexDirection: "column"}}>

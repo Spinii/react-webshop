@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom"
 import './Header.css'
 import { RiShoppingCartLine } from "@remixicon/react"
+import { useContext } from "react"
+import { AppContext } from "../Contex/AppContex"
 
 
 
 function Header(){
+
+    const { basket } = useContext(AppContext)
 
     return(
         <>
@@ -31,7 +35,7 @@ function Header(){
                     <Link to="/cart">
                         <div className="shoppingCart">
                             <RiShoppingCartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
-                            <div className="amount">3</div>
+                            <div className="amount">{basket.products.length}</div>
                         </div>
                     </Link>
                 </div>

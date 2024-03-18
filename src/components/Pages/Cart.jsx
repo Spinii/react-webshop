@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./Cart.css"
 import { CartProduct } from "../subComponents/CartProduct";
 import { RiLoader2Fill } from "@remixicon/react";
 import { CartSummary } from "../subComponents/CartSummary";
+import { AppContext } from "../Contex/AppContex";
 
 function Cart(){
 
@@ -28,7 +29,14 @@ function Cart(){
 
     }, [])
 
-    console.log("this is summary", summary)
+    const { basket, setBasket} = useContext(AppContext)
+
+    const basketProducts = basket.products
+
+    console.log("basket.products =>", basketProducts)
+
+    
+
 
 
     return(
@@ -49,7 +57,7 @@ function Cart(){
                     </div>
                 </div>
                 <div className="cart-line-light"></div>
-                {shoppingCart.map(product => <CartProduct product={product}/>)}
+                {basketProducts.map(product => <CartProduct product={product}/>)}
             </div>
             <CartSummary summary={summary}/>
         </div> : 

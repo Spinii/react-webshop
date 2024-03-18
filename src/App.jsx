@@ -9,25 +9,33 @@ import { Contact } from './components/Pages/Contact'
 import { Product } from './components/Pages/Product'
 import { SingleProduct } from './components/Pages/SingleProduct'
 import { Cart } from './components/Pages/Cart'
+import { AppContext } from './components/Contex/AppContex'
+import { useState } from 'react'
 
 function App() {
 
+  const [ basket, setBasket ] = useState({products: []});
+
+  const appContextValues = { basket, setBasket}
+
   return (
     <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<MainComponent />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/product' element={<Product />} >
-            <Route path='/product/:id' element={<SingleProduct />} />
-          </Route>
-          <Route path='/cart' element={<Cart />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <AppContext.Provider value={appContextValues}>
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path='/' element={<MainComponent />} />
+            <Route path='/shop' element={<Shop />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/product' element={<Product />} >
+              <Route path='/product/:id' element={<SingleProduct />} />
+            </Route>
+            <Route path='/cart' element={<Cart />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </AppContext.Provider>
     </>
   )
 }

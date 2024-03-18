@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import "./SingleProduct.css"
 import "../subComponents/PopularProducts.css"
 import { RiArrowLeftCircleFill, RiLoader2Fill, RiStarFill } from '@remixicon/react';
+import { AppContext } from '../Contex/AppContex';
 
 const SingleProduct = () => {
 
@@ -11,6 +12,7 @@ const SingleProduct = () => {
 
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const {basket, setBasket} = useContext(AppContext)
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -18,9 +20,7 @@ const SingleProduct = () => {
                 const response = await fetch(`https://dummyjson.com/products/${id}`);
                 const data = await response.json();
                 setProduct(data);
-                console.log("data =>", data);
-                console.log("data price =>", product.price)
-                setProductPrice(product.price)
+                // console.log("data =>", data);
             } catch (error) {
                 console.error("Error fetching product:", error);
             }
@@ -29,6 +29,7 @@ const SingleProduct = () => {
         fetchProduct();
     }, [id]);
 
+
     const [currentIndex, setCurrentIndex] = useState(0);
 
     function handleCurrrentIndex(index){
@@ -36,7 +37,7 @@ const SingleProduct = () => {
         setCurrentIndex(index);
     }
 
-    const [cartCount, setCartCount] = useState(0);
+    const [cartCount, setCartCount] = useState(1);
 
 
     function minusCartCount(){
@@ -45,6 +46,16 @@ const SingleProduct = () => {
         }
     }
 
+    function addToBasketHandler() {
+        
+        setBasket(prevBasket => {
+            const updatedProducts = [...prevBasket.products, product];
+            return { ...prevBasket, products: updatedProducts };
+        });
+    }
+    
+    console.log(basket)
+
 
 
     return (
@@ -52,7 +63,7 @@ const SingleProduct = () => {
             {product ? 
             <div className='main-product-container'>
                 <div className="left-side">
-                <RiArrowLeftCircleFill size={"3rem"} color='white' style={{cursor: "pointer"}} onClick={() => navigate(-1)}/>
+                <RiArrowLeftCircleFill onClick={() => navigate(-1)} size={"3rem"} color='white' style={{cursor: "pointer"}} />
                     <div className="left-side-images">
                         <div className="small-images">
                             {product.images.map((image, index) => <div className='img-container'><img onClick={() => handleCurrrentIndex(index)} className='small-image' key={index} src={image}></img></div> )}
@@ -76,12 +87,12 @@ const SingleProduct = () => {
                     <div className="add-to-cart">
                         <div className="add-input">
                             <label onClick={() => minusCartCount()}>-</label>
-                            <input value={cartCount}></input>
+                            <input value={cartCount} style={{minWidth: "50px"}}></input>
                             <label onClick={() => setCartCount(cartCount + 1)}>+</label>
                         </div>
                         <div className="btns">
-                            <button className='mainBtn mainBtnLight'>Add To Cart</button>
-                            <button className='mainBtn mainBtnLight'>Go To Cart</button>
+                            <button className='mainBtn mainBtnLight' onClick={() => addToBasketHandler()}>Add To Cart</button>
+                            <Link to="/cart"><button className='mainBtn mainBtnLight'>Go To Cart</button></Link>
                         </div>
                     </div>
                 </div>
