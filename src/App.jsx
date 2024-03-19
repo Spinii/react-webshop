@@ -10,7 +10,7 @@ import { Product } from './components/Pages/Product'
 import { SingleProduct } from './components/Pages/SingleProduct'
 import { Cart } from './components/Pages/Cart'
 import { AppContext } from './components/Contex/AppContex'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Checkout } from './components/Pages/Checkout'
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
   const [ basket, setBasket ] = useState({products: []});
   const [ cartTotal, setCartTotal ] = useState(0)
 
+  
   const appContextValues = { basket, setBasket, cartTotal, setCartTotal}
 
   return (

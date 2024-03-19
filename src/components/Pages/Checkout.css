@@ -9,14 +9,14 @@ input::-webkit-inner-spin-button {
     padding: 2rem 3rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .checkout-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 2;
+    flex: 3;
 }
 
 .main-checkout-title{
@@ -48,6 +48,12 @@ input::-webkit-inner-spin-button {
     border-radius: 10px;
     min-width: 100px;
 }
+
+.payment-icon-active{
+    border-radius: 1px solid rgb(17, 33, 109);
+    box-shadow: 0 0 5px rgb(17, 33, 109);
+}
+
 
 .buyer-info{
     display: flex;
