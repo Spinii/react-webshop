@@ -10,6 +10,8 @@ function Cart(){
     const [summary, setSummary] = useState(null)
     const [shoppingCart, setShoppingCart] = useState(null)
 
+    const { cartTotal, setCartTotal } = useContext(AppContext)
+
     useEffect(() => {
 
             const fetchShoppingCart = async () => {
@@ -34,6 +36,30 @@ function Cart(){
     const basketProducts = basket.products
 
 
+    useEffect(() => {
+
+        let newCartTotal = 0;
+        for(let i = 0; i < basketProducts.length; i++){
+
+            const discountPrice = basketProducts[i].price - (basketProducts[i].price * basketProducts[i].discountPercentage / 100).toFixed(2);
+    
+            const total = Number((discountPrice * basketProducts[i].quantity).toFixed(2));
+
+            newCartTotal += total;
+            
+        }
+
+        setCartTotal(newCartTotal.toFixed(2))
+
+    }, [basketProducts])
+
+    console.log("cart total =>", cartTotal)
+
+
+
+    
+
+
 
     
 
@@ -55,9 +81,9 @@ function Cart(){
                     </div>
                 </div>
                 <div className="cart-line-light"></div>
-                {basketProducts.map(product => <CartProduct product={product} />)}
+                {basketProducts.map(product => <CartProduct product={product}/>)}
             </div>
-            <CartSummary />
+            <CartSummary cartTotal={cartTotal}/>
         </div> : 
         <RiLoader2Fill />}
         </>

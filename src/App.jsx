@@ -11,12 +11,14 @@ import { SingleProduct } from './components/Pages/SingleProduct'
 import { Cart } from './components/Pages/Cart'
 import { AppContext } from './components/Contex/AppContex'
 import { useState } from 'react'
+import { Checkout } from './components/Pages/Checkout'
 
 function App() {
 
   const [ basket, setBasket ] = useState({products: []});
+  const [ cartTotal, setCartTotal ] = useState(0)
 
-  const appContextValues = { basket, setBasket}
+  const appContextValues = { basket, setBasket, cartTotal, setCartTotal}
 
   return (
     <>
@@ -32,6 +34,7 @@ function App() {
               <Route path='/product/:id' element={<SingleProduct />} />
             </Route>
             <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
           </Routes>
           <Footer />
         </BrowserRouter>

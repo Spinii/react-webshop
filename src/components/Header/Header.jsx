@@ -10,6 +10,8 @@ function Header(){
 
     const { basket } = useContext(AppContext)
 
+    console.log("basket from header =>", basket)
+
 
     return(
         <>
