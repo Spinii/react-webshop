@@ -13,6 +13,7 @@ const SingleProduct = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
     const {basket, setBasket} = useContext(AppContext)
+    const [ cartCount, setCartCount ] = useState(0)
     const [productPrice, setProductPrice] = useState(0)
     const [originalProductPrice, setOriginalProductPrice] = useState(0)
 
@@ -34,10 +35,6 @@ const SingleProduct = () => {
     }, [id]);
 
 
-
-
-
-
     const [currentIndex, setCurrentIndex] = useState(0);
     // const [newProductPrice, setNewProductPrice] = useState(productPrice)
     
@@ -46,9 +43,6 @@ const SingleProduct = () => {
 
         setCurrentIndex(index);
     }
-
-    const [cartCount, setCartCount] = useState(1);
-
 
     function minusCartCount(){
         if(cartCount > 0){
@@ -111,7 +105,7 @@ const SingleProduct = () => {
                     <div className="add-to-cart">
                         <div className="add-input">
                             <label onClick={() => minusCartCount()}>-</label>
-                            <input value={cartCount} style={{minWidth: "50px"}}></input>
+                            <input value={cartCount} style={{minWidth: "50px"}} readOnly></input>
                             <label onClick={() => setCartCount(cartCount + 1)}>+</label>
                         </div>
                         <div className="btns">

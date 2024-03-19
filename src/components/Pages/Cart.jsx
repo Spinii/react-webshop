@@ -10,7 +10,7 @@ function Cart(){
     const [summary, setSummary] = useState(null)
     const [shoppingCart, setShoppingCart] = useState(null)
 
-    const { cartTotal, setCartTotal } = useContext(AppContext)
+    const { basket, setBasket, cartTotal, setCartTotal } = useContext(AppContext)
 
     useEffect(() => {
 
@@ -30,8 +30,6 @@ function Cart(){
         fetchShoppingCart();
 
     }, [])
-
-    const { basket, setBasket} = useContext(AppContext)
 
     const basketProducts = basket.products
 
@@ -53,15 +51,11 @@ function Cart(){
 
     }, [basketProducts])
 
-    console.log("cart total =>", cartTotal)
+    const handleRemoveProduct = (productId) => {
+        const updatedBasket = basketProducts.filter((product) => product.id !== productId);
+        setBasket({ ...basket, products: updatedBasket });
+    };
 
-
-
-    
-
-
-
-    
 
     return(
         <>
@@ -81,7 +75,7 @@ function Cart(){
                     </div>
                 </div>
                 <div className="cart-line-light"></div>
-                {basketProducts.map(product => <CartProduct product={product}/>)}
+                {basketProducts.map(product => <CartProduct key={product.id} product={product} onRemoveProduct={handleRemoveProduct}/>)}
             </div>
             <CartSummary cartTotal={cartTotal}/>
         </div> : 

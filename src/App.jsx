@@ -19,7 +19,7 @@ function App() {
   const [ cartTotal, setCartTotal ] = useState(0)
 
   
-  const appContextValues = { basket, setBasket, cartTotal, setCartTotal}
+  const appContextValues = { basket, setBasket, cartTotal, setCartTotal }
 
   return (
     <>
