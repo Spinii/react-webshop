@@ -24,7 +24,7 @@ function CartProduct({product}){
                     <div className="product-info">
                         <h2>{product.title}</h2>
                         <h5><strong>Product Nr: </strong>{product.id}</h5>
-                        <h5><strong>Product Quantity: </strong>{product.quantity}</h5>
+                        <h5 className="quantity"><strong>Product Quantity: </strong>{product.quantity}</h5>
                         <h5><strong>Discount Percentage: </strong>{product.discountPercentage}%</h5>
                     </div>
                 </div>

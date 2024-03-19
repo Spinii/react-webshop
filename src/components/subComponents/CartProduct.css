@@ -29,6 +29,14 @@
     font-size: .9rem;
     opacity: .8;
     margin-bottom: .1rem;
+    color: rgb(24, 40, 122);
+}
+
+.product-info .quantity{
+    font-size: 1.1rem;
+    background-color: rgb(235, 235, 235);
+    padding: .2rem;
+    border-radius: 5px;
 }
 
 .price-info h4{
