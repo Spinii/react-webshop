@@ -5,6 +5,11 @@ import "./CartProduct.css"
 
 function CartProduct({product}){
 
+    
+    const discountPrice = product.price - (product.price * product.discountPercentage / 100).toFixed(2);
+
+    const total = (discountPrice * product.quantity).toFixed(2);
+
 
     return(
         <div style={{display: "flex", flexDirection: "column"}}>
@@ -26,10 +31,10 @@ function CartProduct({product}){
             </div>
             <div className="price-info">
                 <h4>{product.price}€</h4>
-                <h2>{product.price - (product.price * product.discountPercentage / 100).toFixed(2)}€</h2>
+                <h2>{discountPrice}€</h2>
             </div>
             <div className="total-price">
-                <h2>{product.price * product.quantity}€</h2>
+                <h2>{total}€</h2>
             </div>
             </div>
             <div className="cart-line-light"></div>

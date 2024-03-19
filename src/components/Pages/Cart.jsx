@@ -33,7 +33,7 @@ function Cart(){
 
     const basketProducts = basket.products
 
-    console.log("basket.products =>", basketProducts)
+
 
     
 
@@ -55,7 +55,7 @@ function Cart(){
                     </div>
                 </div>
                 <div className="cart-line-light"></div>
-                {basketProducts.map(product => <CartProduct product={product}/>)}
+                {basketProducts.map(product => <CartProduct product={product} />)}
             </div>
             <CartSummary />
         </div> : 

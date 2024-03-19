@@ -1,7 +1,11 @@
 import "./CartSummary.css"
 import "./CartProduct.css"
+import { useContext } from "react"
+import { AppContext } from "../Contex/AppContex"
 
-const CartSummary = ({basketTotal}) => {
+const CartSummary = () => {
+
+    
 
     return (
         <>
@@ -16,7 +20,7 @@ const CartSummary = ({basketTotal}) => {
                 <div className="cart-line-bold"></div>
                 <div className="main-summary-row summary-row">
                     <h3>Subtotal</h3>
-                    <h3>{basketTotal}€</h3>
+                    <h3>€</h3>
                 </div>
                 <div className="summary-row">
                     <h3>Shipping</h3>
@@ -29,7 +33,7 @@ const CartSummary = ({basketTotal}) => {
                 <div className="cart-line-bold"></div>
                 <div className="summary-row">
                     <h2>Estimated Total</h2>
-                    <h2>{basketTotal}€</h2>
+                    <h2>€</h2>
                 </div>
                 <div className="cart-line-bold"></div>
                 <div className="summary-row-button">

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import './Header.css'
 import { RiShoppingCartLine } from "@remixicon/react"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { AppContext } from "../Contex/AppContex"
 
 
@@ -9,6 +9,7 @@ import { AppContext } from "../Contex/AppContex"
 function Header(){
 
     const { basket } = useContext(AppContext)
+
 
     return(
         <>
