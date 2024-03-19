@@ -10,6 +10,8 @@ function Header(){
 
     const { basket } = useContext(AppContext)
 
+    const totalQuantity = basket.products.reduce((total, product) => total + product.quantity, 0);
+
     console.log("basket from header =>", basket)
 
 
@@ -38,7 +40,7 @@ function Header(){
                     <Link to="/cart">
                         <div className="shoppingCart">
                             <RiShoppingCartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
-                            <div className="amount">{basket.products.length}</div>
+                            <div className="amount">{totalQuantity}</div>
                         </div>
                     </Link>
                 </div>

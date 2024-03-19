@@ -1,5 +1,6 @@
 import React from 'react'
 import { RiBankCard2Fill, RiGift2Fill, RiPaypalFill } from '@remixicon/react'
+import { Link } from 'react-router-dom'
 
 const CustomerInfoForm = () => {
 
@@ -136,7 +137,9 @@ const CustomerInfoForm = () => {
                 <div className="small-text">
                     Maybe want to go back?
                 </div>
-                <button className='go-back-checkoutBtn'>Go Back</button>
+                <Link to="/cart">
+                    <button className='go-back-checkoutBtn'>Go Back</button>
+                </Link>
            </div>
   )
 }
