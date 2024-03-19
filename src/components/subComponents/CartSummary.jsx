@@ -6,9 +6,10 @@ import { Link } from "react-router-dom"
 
 const CartSummary = () => {
 
-    // const {basket, setBasket} = useContext(AppContext)
 
-    const { cartTotal, setCartTotal} = useContext(AppContext)
+    const { basket, setBasket, cartTotal, setCartTotal} = useContext(AppContext)
+
+    const isBasketEmpty = basket.products.length === 0;
     
 
     return (
@@ -40,11 +41,11 @@ const CartSummary = () => {
                     <h2>{cartTotal}€</h2>
                 </div>
                 <div className="cart-line-bold"></div>
-                <Link to="/checkout">
-                    <div className="summary-row-button">
+                { isBasketEmpty ? <></> : <Link to="/checkout">
+                    <div className={`summary-row-button`}>
                         Checkout
                     </div>
-                </Link>
+                </Link> }
                 <div className="summary-row">
                     <p>Need Help? Call us at 888-444-222</p>
                 </div>
