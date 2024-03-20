@@ -11,7 +11,7 @@ function PopularProducts() {
     const fetchPopularProducts = async () => {
       try {
         const response = await fetch(
-          "https://dummyjson.com/products?limit=6&skip=6&select=title,price,thumbnail,id,brand"
+          "https://dummyjson.com/products?limit=8&skip=60&select=title,price,thumbnail,id,brand"
         );
         const data = await response.json();
         console.log("data =>", data);

@@ -13,7 +13,7 @@
   );
   border-radius: 10px;
   flex: 0 1 calc(33.33% - 2rem);
-  max-width: calc(33.33% - 2rem);
+  max-width: calc(25% - 2rem);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.281);
 }
 
