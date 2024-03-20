@@ -17,6 +17,7 @@ const SingleProduct = () => {
     const [productPrice, setProductPrice] = useState(0)
     const [originalProductPrice, setOriginalProductPrice] = useState(0)
 
+
     useEffect(() => {
         const fetchProduct = async () => {
             try {
