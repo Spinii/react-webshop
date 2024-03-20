@@ -1,70 +1,82 @@
-
-
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: .5rem 3rem;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 3rem;
 }
 
-.navbar ul{
-    display: flex;
-    gap: 3rem;
+.navbar ul {
+  display: flex;
+  gap: 3rem;
 }
 
-.navbar li{
-    list-style-type: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    padding: .5rem;
-    border-bottom: 5px solid transparent;
-    transition: all 0.3s ease;
-    color: black;
+.navbar li {
+  list-style-type: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 0.5rem;
+  border-bottom: 5px solid transparent;
+  transition: all 0.3s ease;
+  color: black;
 }
 
-.navbar li:hover{
-    border-bottom: 5px solid rgba(9,21,82,1);
-    border-radius: 5px;
+.navbar li:hover {
+  border-bottom: 5px solid rgba(9, 21, 82, 1);
+  border-radius: 5px;
 }
 
-.logo{
-    font-size: 2rem;
-    font-weight: bold;
-    color: rgba(9,21,82,1);
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgba(9, 21, 82, 1);
 }
 
-.logo:hover{
-    transform: scale(1.05);
+.logo:hover {
+  transform: scale(1.05);
 }
 
-.shoppingCart{
-    display: flex;
+.shoppingCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  padding: 0.5rem;
+}
+
+.shoppingCart:hover {
+  transform: scale(1.1);
+  color: rgb(26, 26, 26);
+}
+
+.amount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+  bottom: 10;
+  transform: translateX(50%);
+  transform: translateY(50%);
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  background-color: rgba(9, 21, 82, 1);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    position: relative;
-    padding: .5rem;
-}
-
-.shoppingCart:hover{
-    transform: scale(1.1);
-    color: rgb(26, 26, 26);
-}
-
-.amount{
-    display: flex;
-    align-items: center;
+  }
+  .navbar ul {
+    flex-direction: column;
     justify-content: center;
-    position: absolute;
-    right: 0;
-    bottom: 10;
-    transform: translateX(50%);
-    transform: translateY(50%);
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    font-size: 1.2rem;
-    background-color: rgba(9,21,82,1);
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    align-items: center;
+    gap: 1rem;
+  }
 }

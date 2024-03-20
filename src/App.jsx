@@ -12,6 +12,7 @@ import { Cart } from "./components/Pages/Cart";
 import { AppContext } from "./components/Contex/AppContex";
 import { useEffect, useState } from "react";
 import { Checkout } from "./components/Pages/Checkout";
+import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [basket, setBasket] = useState({ products: [] });
@@ -23,6 +24,7 @@ function App() {
     <>
       <AppContext.Provider value={appContextValues}>
         <BrowserRouter>
+          <Toaster />
           <Header />
           <Routes>
             <Route path="/" element={<MainComponent />} />

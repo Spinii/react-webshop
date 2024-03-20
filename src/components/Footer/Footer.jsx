@@ -44,12 +44,14 @@ function Footer() {
     <>
       <div className="footer-container">
         <div className="footer-item">
-          <div className="footer-logo">LOGO</div>
           <div className="socials">
+            <div className="footer-logo">LOGO</div>
             <h2 style={{ marginBottom: ".5rem" }}>Follow Us On</h2>
-            <RiFacebookFill color="rgba(9,21,82,1)" size={"2.5rem"} />
-            <RiTwitterXFill color="rgba(9,21,82,1)" size={"2.5rem"} />
-            <RiInstagramFill color="rgba(9,21,82,1)" size={"2.5rem"} />
+            <div className="social-links">
+              <RiFacebookFill className="social" />
+              <RiTwitterXFill className="social" />
+              <RiInstagramFill className="social" />
+            </div>
           </div>
         </div>
         <div className="footer-item">

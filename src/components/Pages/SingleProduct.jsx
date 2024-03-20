@@ -8,6 +8,7 @@ import {
   RiStarFill,
 } from "@remixicon/react";
 import { AppContext } from "../Contex/AppContex";
+import toast, { Toaster } from "react-hot-toast";
 
 const SingleProduct = () => {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ const SingleProduct = () => {
   }
 
   function addToBasketHandler() {
+    toast("Product Added To Cart");
     if (cartCount > 0) {
       setBasket((prevBasket) => {
         const updatedProducts = [...prevBasket.products];
@@ -139,13 +141,15 @@ const SingleProduct = () => {
               </div>
               <div className="btns">
                 <button
-                  className="mainBtn mainBtnLight"
+                  className="mainBtn mainBtnLight shopBtn"
                   onClick={() => addToBasketHandler()}
                 >
                   Add To Cart
                 </button>
                 <Link to="/cart">
-                  <button className="mainBtn mainBtnLight">Go To Cart</button>
+                  <button className="mainBtn mainBtnLight shopBtn">
+                    Go To Cart
+                  </button>
                 </Link>
               </div>
             </div>
