@@ -1,5 +1,6 @@
 import AboutLists from "../subComponents/AboutLists";
 import AboutParagraph from "../subComponents/AboutParagraph";
+import { Subscribe } from "../subComponents/Subscribe";
 import "./About.css";
 
 function About() {
@@ -93,6 +94,7 @@ function About() {
           isReversed={true}
         />
       </div>
+      <Subscribe />
     </>
   );
 }
