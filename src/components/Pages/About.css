@@ -114,3 +114,37 @@
   margin-right: 0.2rem;
   color: rgba(5, 16, 66, 1);
 }
+
+@media only screen and (max-width: 768px) {
+  .about-us-banner p {
+    width: 100%;
+  }
+
+  .about-content-container {
+    flex-direction: column;
+  }
+
+  .about-text,
+  .about-image {
+    flex: none;
+    width: 100%;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-image img {
+    max-width: 100%;
+  }
+
+  .blue-square {
+    opacity: 0;
+  }
+
+  .about-text h3,
+  .about-text p,
+  .about-text ul {
+    width: 100%;
+  }
+}

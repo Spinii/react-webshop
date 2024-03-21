@@ -39,6 +39,7 @@
 
 @media (max-width: 768px) {
   .footer-container {
+    padding: 1rem;
     grid-template-columns: auto auto;
     gap: 2rem;
   }

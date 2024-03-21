@@ -93,7 +93,6 @@ const SingleProduct = () => {
                   <div className="img-container">
                     <img
                       onClick={() => handleCurrrentIndex(index)}
-                      className="small-image"
                       key={index}
                       src={image}
                     ></img>
