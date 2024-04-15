@@ -5,6 +5,8 @@ const AppContext = createContext({
   setBasket: () => {},
   cartTotal: 0,
   setCartTotal: () => {},
+  wishlist: {},
+  setWishlist: () => {},
 });
 
 export { AppContext };

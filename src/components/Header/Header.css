@@ -61,7 +61,7 @@
   font-weight: bold;
   color: rgb(255, 255, 255);
   font-size: 1.2rem;
-  background-color: rgba(9, 21, 82, 1);
+  background-color: rgba(9, 21, 82, 0.85);
   border-radius: 50%;
   width: 30px;
   height: 30px;

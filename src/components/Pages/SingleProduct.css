@@ -166,7 +166,15 @@
 }
 
 .btns .shopBtn:hover {
-  background-color: rgb(32, 47, 122);
+  background-color: rgb(49, 66, 152);
+}
+
+.heart {
+  cursor: pointer;
+}
+
+.userCartAndWish {
+  display: flex;
 }
 
 @media only screen and (max-width: 768px) {

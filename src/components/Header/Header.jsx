@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { RiShoppingCartLine } from "@remixicon/react";
+import { RiShoppingCartLine, RiHeartLine } from "@remixicon/react";
 import { useContext, useState } from "react";
 import { AppContext } from "../Contex/AppContex";
 
 function Header() {
   const { basket } = useContext(AppContext);
+
+  const { wishlist } = useContext(AppContext);
 
   const totalQuantity = basket.products.reduce(
     (total, product) => total + product.quantity,
@@ -34,12 +36,20 @@ function Header() {
               </Link>
             </ul>
           </div>
-          <Link to="/cart">
-            <div className="shoppingCart">
-              <RiShoppingCartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
-              <div className="amount">{totalQuantity}</div>
-            </div>
-          </Link>
+          <div className="userCartAndWish">
+            <Link to="/wishList">
+              <div className="shoppingCart">
+                <RiHeartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
+                <div className="amount">{totalQuantity}</div>
+              </div>
+            </Link>
+            <Link to="/cart">
+              <div className="shoppingCart">
+                <RiShoppingCartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
+                <div className="amount">{totalQuantity}</div>
+              </div>
+            </Link>
+          </div>
         </div>
       </nav>
     </>

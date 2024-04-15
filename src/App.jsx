@@ -16,9 +16,17 @@ import toast, { Toaster } from "react-hot-toast";
 
 function App() {
   const [basket, setBasket] = useState({ products: [] });
+  const [wishlist, setWishlist] = useState({ products: [] });
   const [cartTotal, setCartTotal] = useState(0);
 
-  const appContextValues = { basket, setBasket, cartTotal, setCartTotal };
+  const appContextValues = {
+    basket,
+    setBasket,
+    cartTotal,
+    setCartTotal,
+    wishlist,
+    setWishlist,
+  };
 
   return (
     <>

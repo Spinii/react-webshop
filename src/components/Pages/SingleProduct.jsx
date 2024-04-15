@@ -6,6 +6,8 @@ import {
   RiArrowLeftCircleFill,
   RiLoader2Fill,
   RiStarFill,
+  RiHeartLine,
+  RiHeartFill,
 } from "@remixicon/react";
 import { AppContext } from "../Contex/AppContex";
 import toast, { Toaster } from "react-hot-toast";
@@ -16,9 +18,11 @@ const SingleProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const { basket, setBasket } = useContext(AppContext);
+  const { wishlist, setWishlist } = useContext(AppContext);
   const [cartCount, setCartCount] = useState(0);
   const [productPrice, setProductPrice] = useState(0);
   const [originalProductPrice, setOriginalProductPrice] = useState(0);
+  const [likeProduct, setLikeProduct] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -69,6 +73,14 @@ const SingleProduct = () => {
       });
     } else {
       window.alert("Please choose at least one product!");
+    }
+  }
+
+  function handleWishlist() {
+    if (likeProduct) {
+      setLikeProduct(false);
+    } else {
+      setLikeProduct(true);
     }
   }
 
@@ -145,6 +157,13 @@ const SingleProduct = () => {
                 >
                   Add To Cart
                 </button>
+                <div className="heart" onClick={() => handleWishlist()}>
+                  {likeProduct ? (
+                    <RiHeartFill color="red" />
+                  ) : (
+                    <RiHeartLine color="red" />
+                  )}
+                </div>
                 <Link to="/cart">
                   <button className="mainBtn mainBtnLight shopBtn">
                     Go To Cart
