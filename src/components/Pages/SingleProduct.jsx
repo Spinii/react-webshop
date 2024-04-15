@@ -41,8 +41,22 @@ const SingleProduct = () => {
     fetchProduct();
   }, [id]);
 
+  const checkIfProductIsLiked = () => {
+    if (product && product.id) {
+      const likedProductId = wishlist.wishlistProducts.some(
+        (item) => item.id === product.id
+      );
+      if (likedProductId) {
+        setLikeProduct(true);
+      }
+    }
+  };
+
+  useEffect(() => {
+    checkIfProductIsLiked();
+  }, [product]);
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [newProductPrice, setNewProductPrice] = useState(productPrice)
 
   function handleCurrrentIndex(index) {
     setCurrentIndex(index);
@@ -77,16 +91,40 @@ const SingleProduct = () => {
   }
 
   function handleWishlist() {
-    if (likeProduct) {
-      setLikeProduct(false);
-    } else {
+    if (!likeProduct) {
+      setWishlist((prevWishlist) => {
+        const updatedWishlist = [...prevWishlist.wishlistProducts];
+        const existingProductIndex = updatedWishlist.findIndex(
+          (item) => item.id === product.id
+        );
+        if (existingProductIndex !== -1) {
+          updatedWishlist[existingProductIndex].quantity += 1;
+        } else {
+          updatedWishlist.push({ ...product, quantity: 1 });
+        }
+        return { ...prevWishlist, wishlistProducts: updatedWishlist };
+      });
       setLikeProduct(true);
+    } else {
+      setWishlist((prevWishlist) => {
+        const updatedWishlist = [...prevWishlist.wishlistProducts];
+        const indexToRemove = updatedWishlist.findIndex(
+          (item) => item.id === product.id
+        );
+        if (indexToRemove !== -1) {
+          updatedWishlist.splice(indexToRemove, 1);
+        }
+        return { ...prevWishlist, wishlistProducts: updatedWishlist };
+      });
+      setLikeProduct(false);
     }
   }
 
   useEffect(() => {
     setProductPrice(originalProductPrice * cartCount);
   }, [cartCount]);
+
+  console.log("wishlist =>", wishlist);
 
   return (
     <div className="main">

@@ -14,7 +14,12 @@ function Header() {
     0
   );
 
-  console.log("basket from header =>", basket);
+  const wishlistQuantity = wishlist.wishlistProducts.reduce(
+    (total, product) => total + product.quantity,
+    0
+  );
+
+  // console.log("basket from header =>", basket);
 
   return (
     <>
@@ -40,7 +45,7 @@ function Header() {
             <Link to="/wishList">
               <div className="shoppingCart">
                 <RiHeartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
-                <div className="amount">{totalQuantity}</div>
+                <div className="amount">{wishlistQuantity}</div>
               </div>
             </Link>
             <Link to="/cart">
