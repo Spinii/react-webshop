@@ -19,7 +19,7 @@ const SingleProduct = () => {
   const [product, setProduct] = useState(null);
   const { basket, setBasket } = useContext(AppContext);
   const { wishlist, setWishlist } = useContext(AppContext);
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState(1);
   const [productPrice, setProductPrice] = useState(0);
   const [originalProductPrice, setOriginalProductPrice] = useState(0);
   const [likeProduct, setLikeProduct] = useState(false);
@@ -63,7 +63,7 @@ const SingleProduct = () => {
   }
 
   function minusCartCount() {
-    if (cartCount > 0) {
+    if (cartCount > 1) {
       setCartCount(cartCount - 1);
     }
   }
