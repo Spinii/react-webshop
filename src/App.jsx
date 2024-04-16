@@ -9,6 +9,7 @@ import { Contact } from "./components/Pages/Contact";
 import { Product } from "./components/Pages/Product";
 import { SingleProduct } from "./components/Pages/SingleProduct";
 import { Cart } from "./components/Pages/Cart";
+import { Wishlist } from "./components/Pages/Wishlist";
 import { AppContext } from "./components/Contex/AppContex";
 import { useEffect, useState } from "react";
 import { Checkout } from "./components/Pages/Checkout";
@@ -44,6 +45,7 @@ function App() {
             </Route>
             <Route path="/cart" element={<Cart />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/wishlist" element={<Wishlist />} />
           </Routes>
           <Footer />
         </BrowserRouter>

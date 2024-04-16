@@ -42,7 +42,7 @@ function Header() {
             </ul>
           </div>
           <div className="userCartAndWish">
-            <Link to="/wishList">
+            <Link to="/wishlist">
               <div className="shoppingCart">
                 <RiHeartLine color="rgb(70, 70, 70)" size={"2.5rem"} />
                 <div className="amount">{wishlistQuantity}</div>

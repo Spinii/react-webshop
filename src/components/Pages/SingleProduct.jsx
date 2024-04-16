@@ -197,9 +197,9 @@ const SingleProduct = () => {
                 </button>
                 <div className="heart" onClick={() => handleWishlist()}>
                   {likeProduct ? (
-                    <RiHeartFill color="red" />
+                    <RiHeartFill size={"2.5rem"} color="red" />
                   ) : (
-                    <RiHeartLine color="red" />
+                    <RiHeartLine size={"2.5rem"} color="red" />
                   )}
                 </div>
                 <Link to="/cart">
