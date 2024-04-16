@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 const WishlistItem = ({ wishlistProduct }) => {
   const { basket, setBasket } = useContext(AppContext);
+  const { wishlist, setWishlist } = useContext(AppContext);
 
   function addToBasketHandler() {
     console.log("clicked");
@@ -29,12 +30,24 @@ const WishlistItem = ({ wishlistProduct }) => {
     });
   }
 
+  function removeFromWishlistHandler() {
+    const updateWishlist = wishlist.wishlistProducts.filter(
+      (item) => item.id !== wishlistProduct.id
+    );
+
+    setWishlist({ ...wishlist, wishlistProducts: updateWishlist });
+  }
+
   return (
     <>
       <div className="wishlist-light-line"></div>
       <div className="wishlist-item-container">
         <div className="wishlist-delete-thumbnail">
-          <RiDeleteBin3Line size={"3rem"} className="delete-icon" />
+          <RiDeleteBin3Line
+            size={"3rem"}
+            className="delete-icon"
+            onClick={() => removeFromWishlistHandler()}
+          />
           <Link key={wishlistProduct.id} to={`/product/${wishlistProduct.id}`}>
             <div className="wishlist-thumbnail">
               <img cla src={wishlistProduct.thumbnail}></img>
