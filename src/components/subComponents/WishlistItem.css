@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 1320px;
   max-width: 1320px;
   padding: 1rem;
 }
@@ -30,10 +31,11 @@
 
 .wishlist-info {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  min-width: 750px;
+  min-width: 600px;
+  text-align: center;
 }
+
 .wishlist-thumbnail {
   max-width: 100px;
   max-height: 100px;
@@ -64,4 +66,16 @@
 
 .wishlist-add-to-cart:hover {
   background-color: rgb(94, 120, 255);
+}
+
+.wishlist-item-title {
+  flex: 1;
+}
+
+.wishlist-item-price {
+  flex: 1;
+}
+
+.wishlist-stock {
+  flex: 1;
 }

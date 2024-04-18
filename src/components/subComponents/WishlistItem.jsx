@@ -57,7 +57,7 @@ const WishlistItem = ({ wishlistProduct }) => {
         <div className="wishlist-info">
           <h3 className="wishlist-item-title">{wishlistProduct.title}</h3>
           <h4 className="wishlist-item-price">{wishlistProduct.price}$</h4>
-          <h4>In Stock</h4>
+          <h4 className="wishlist-stock">In Stock</h4>
         </div>
         <div className="wishlist-button">
           <div

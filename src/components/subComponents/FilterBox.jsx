@@ -1,9 +1,15 @@
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import "./FilterBox.css";
-import { RiArrowDownDoubleLine } from "@remixicon/react";
+import { RiArrowDownDoubleLine, RiCheckboxBlankLine } from "@remixicon/react";
 import { useEffect, useState } from "react";
+import StickyBox from "react-sticky-box";
 
-function FilterBox({ products, handleCheckBoxChange, resetFilteredProducts }) {
+function FilterBox({
+  products,
+  handleCheckBoxChange,
+  resetFilteredProducts,
+  isChecked,
+}) {
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
 
@@ -35,7 +41,7 @@ function FilterBox({ products, handleCheckBoxChange, resetFilteredProducts }) {
       <Accordion
         defaultValue={30}
         sx={{
-          width: 300,
+          width: 250,
           color: "white",
           backgroundColor: "rgb(18, 32, 101)",
           marginBottom: "1rem",
@@ -65,6 +71,7 @@ function FilterBox({ products, handleCheckBoxChange, resetFilteredProducts }) {
                   onChange={(event) => handleCheckBoxChange(event)}
                   id={category}
                   type="checkbox"
+                  checked={isChecked}
                 ></input>
                 <label for={category}>{category}</label>
               </div>
@@ -72,33 +79,6 @@ function FilterBox({ products, handleCheckBoxChange, resetFilteredProducts }) {
           </div>
         </AccordionDetails>
       </Accordion>
-      {/* <Accordion
-                defaultValue={30}
-                sx={{
-                    width: 300,
-                    color: 'white',
-                    backgroundColor: "rgb(18, 32, 101)",
-                    marginBottom: "1rem",
-                    borderRadius: "10px"
-                }}>
-                <AccordionSummary 
-                    expandIcon={<RiArrowDownDoubleLine color="white"/>}
-                    aria-controls="panel1-content"
-                    id="panel1-header"
-                    >
-                    Product Brands
-                </AccordionSummary>
-                    <AccordionDetails>
-                    <div className="filterBox">
-                    <button className="filterBtn">Filter Categories</button>
-                    {brands.map(brand => 
-                        <div className="filter">
-                            <input value={brand} id={brand} type="checkbox" onClick={(event) => handleCheckBoxChange(event)}></input>
-                            <label for={brand}>{brand}</label>
-                        </div>)}
-                    </div>
-                    </AccordionDetails>
-            </Accordion> */}
     </div>
   );
 }

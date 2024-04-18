@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Shop.css";
 import { FilterBox } from "../subComponents/FilterBox";
+import { RiCheckboxBlankFill } from "@remixicon/react";
 
 function Shop() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [allCheckedCategories, setAllCheckedCategories] = useState([]);
+  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -46,11 +48,25 @@ function Shop() {
     } else {
       setAllCheckedCategories([...allCheckedCategories, newItem]);
     }
+
+    setIsChecked((allCheckedCategories) => {
+      const checkedProducts = [allCheckedCategories];
+      if (checkedProducts.includes(newItem)) {
+        return true;
+      }
+    });
   }
 
   function resetFilteredProducts() {
     setFilteredProducts(products);
+    setAllCheckedCategories([]);
   }
+
+  useEffect(() => {
+    if (allCheckedCategories.length === 0) {
+      setIsChecked(false);
+    }
+  }, [allCheckedCategories]);
 
   return (
     <>
@@ -59,13 +75,15 @@ function Shop() {
           products={products}
           handleCheckBoxChange={handleCheckBoxChange}
           resetFilteredProducts={resetFilteredProducts}
+          isChecked={isChecked}
         />
         <div className="shop-left">
           {filteredProducts.map((product) => (
             <Link key={product.id} to={`/product/${product.id}`}>
               <div key={product.id} className="shopProduct">
-                <img src={product.thumbnail}></img>
                 <h3>{product.title}</h3>
+                <img src={product.thumbnail}></img>
+
                 <h4>{product.price}€</h4>
               </div>
             </Link>
