@@ -13,20 +13,19 @@ const WishlistItem = ({ wishlistProduct }) => {
   const { wishlist, setWishlist } = useContext(AppContext);
 
   function addToBasketHandler() {
-    setBasket((prevBasket) => {
-      const updatedBasket = [...prevBasket.products];
-      const existingProductIndex = updatedBasket.findIndex(
-        (item) => item.id === wishlistProduct.id
-      );
+    const existingProductIndex = basket.products.findIndex(
+      (item) => item.id === wishlistProduct.id
+    );
 
-      if (existingProductIndex !== -1) {
-        updatedBasket[existingProductIndex].quantity += 1;
-      } else {
-        updatedBasket.push({ ...wishlistProduct, quantity: 1 });
-      }
+    const updatedBasket = [...basket.products];
 
-      return { ...prevBasket, products: updatedBasket };
-    });
+    if (existingProductIndex !== -1) {
+      updatedBasket[existingProductIndex].quantity += 1;
+    } else {
+      updatedBasket.push({ ...wishlistProduct, quantity: 1 });
+    }
+
+    setBasket({ ...basket, products: updatedBasket });
   }
 
   function removeFromWishlistHandler() {

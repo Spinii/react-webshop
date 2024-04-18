@@ -57,7 +57,7 @@ function FilterBox({
                   type="checkbox"
                   checked={allCheckedCategories.includes(category)}
                 ></input>
-                <label for={category}>{category}</label>
+                <label htmlFor={category}>{category}</label>
               </div>
             ))}
           </div>
