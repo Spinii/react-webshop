@@ -8,33 +8,17 @@ function FilterBox({
   products,
   handleCheckBoxChange,
   resetFilteredProducts,
-  isChecked,
+  allCheckedCategories,
 }) {
   const [categories, setCategories] = useState([]);
-  const [brands, setBrands] = useState([]);
 
   useEffect(() => {
-    let filteredCategories = [];
-    let filteredBrands = [];
-
-    for (let i = 0; i < products.length; i++) {
-      categories.push(products[i].category);
-      brands.push(products[i].brand);
-    }
-
-    filteredCategories = categories.filter(
-      (val, id, array) => array.indexOf(val) == id
+    const uniqueCategories = Array.from(
+      new Set(products.map((product) => product.category))
     );
 
-    filteredBrands = brands.filter(
-      (val, id, array) => array.indexOf(val) == id
-    );
-
-    setCategories(filteredCategories);
-    setBrands(filteredBrands);
+    setCategories(uniqueCategories);
   }, [products]);
-
-  //    console.log("brands", brands)
 
   return (
     <div className="main-filter-contaienr">
@@ -68,10 +52,10 @@ function FilterBox({
               <div className="filter">
                 <input
                   value={category}
-                  onChange={(event) => handleCheckBoxChange(event)}
+                  onChange={() => handleCheckBoxChange(category)}
                   id={category}
                   type="checkbox"
-                  checked={isChecked}
+                  checked={allCheckedCategories.includes(category)}
                 ></input>
                 <label for={category}>{category}</label>
               </div>

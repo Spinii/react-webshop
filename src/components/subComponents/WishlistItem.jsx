@@ -13,7 +13,6 @@ const WishlistItem = ({ wishlistProduct }) => {
   const { wishlist, setWishlist } = useContext(AppContext);
 
   function addToBasketHandler() {
-    console.log("clicked");
     setBasket((prevBasket) => {
       const updatedBasket = [...prevBasket.products];
       const existingProductIndex = updatedBasket.findIndex(

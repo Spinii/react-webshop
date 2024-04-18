@@ -8,7 +8,6 @@ function Shop() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [allCheckedCategories, setAllCheckedCategories] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -37,36 +36,21 @@ function Shop() {
     }
   }, [allCheckedCategories, products]);
 
-  function handleCheckBoxChange(event) {
-    const newItem = event.target.value;
-
-    if (allCheckedCategories.includes(newItem)) {
+  function handleCheckBoxChange(category) {
+    if (allCheckedCategories.includes(category)) {
       const updatedCheckedCategories = allCheckedCategories.filter(
-        (item) => item !== newItem
+        (item) => item !== category
       );
       setAllCheckedCategories(updatedCheckedCategories);
     } else {
-      setAllCheckedCategories([...allCheckedCategories, newItem]);
+      setAllCheckedCategories([...allCheckedCategories, category]);
     }
-
-    setIsChecked((allCheckedCategories) => {
-      const checkedProducts = [allCheckedCategories];
-      if (checkedProducts.includes(newItem)) {
-        return true;
-      }
-    });
   }
 
   function resetFilteredProducts() {
     setFilteredProducts(products);
     setAllCheckedCategories([]);
   }
-
-  useEffect(() => {
-    if (allCheckedCategories.length === 0) {
-      setIsChecked(false);
-    }
-  }, [allCheckedCategories]);
 
   return (
     <>
@@ -75,7 +59,7 @@ function Shop() {
           products={products}
           handleCheckBoxChange={handleCheckBoxChange}
           resetFilteredProducts={resetFilteredProducts}
-          isChecked={isChecked}
+          allCheckedCategories={allCheckedCategories}
         />
         <div className="shop-left">
           {filteredProducts.map((product) => (
